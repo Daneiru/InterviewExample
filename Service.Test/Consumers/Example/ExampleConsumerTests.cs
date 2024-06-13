@@ -5,6 +5,7 @@ using MassTransit;
 using Service.Consumers.Example;
 using Service.Test.Common;
 using Service.Test.Common.DatabaseSetup;
+using Service.Test.Common.Extensions;
 
 namespace Service.Test.Consumers.Example;
 

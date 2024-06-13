@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using Moq;
 
-namespace Service.Test.Common;
+namespace Service.Test.Common.Extensions;
 
 public static class LifetimeScopeTestingExtensions
 {

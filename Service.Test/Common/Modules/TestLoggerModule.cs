@@ -3,7 +3,7 @@ using Kernel.Extensions;
 using Serilog;
 using Serilog.Events;
 
-namespace Service.Test.Common;
+namespace Service.Test.Common.Modules;
 
 internal class TestLoggerModule : Module
 {
