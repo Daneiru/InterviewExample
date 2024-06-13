@@ -5,6 +5,7 @@ using Infrastructure.NHibernateDatabase.AutofacModules;
 using Infrastructure.NHibernateDatabase.Interfaces;
 using Moq;
 using Service.Test.Common.DatabaseSetup;
+using Service.Test.Common.Extensions;
 using Service.Test.Common.Modules;
 using Service.Test.Common.TestDataGenerators;
 using System.Reflection;
