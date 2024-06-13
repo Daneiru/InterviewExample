@@ -27,10 +27,11 @@ public class ExampleConsumer : BaseNHibernateConsumer<IExampleEvent>
         using var database = DatabaseFactory.GetDbADataSession();
         database.Session.BeginTransaction();
 
-        // Do data-y things...
+        // Do data-y things...        
         // database.Session.GetAsync(id)
         // database.Session.UpdateAsync(obj)
         // etc
+        var resultData = "Example data"; // Store data result here to send back in response
 
         database.Commit();
 
@@ -45,5 +46,12 @@ public class ExampleConsumer : BaseNHibernateConsumer<IExampleEvent>
 
         // Send complected message to explicit endpoint, with custom headers
         await SendMessageBroadcaster.BroadcastAsync(new ExampleSend(), customHeaders, context.CancellationToken);
+
+        // Standard consumer response
+        await context.RespondAsync<IExampleResponse>(new
+        {
+            Success = true,
+            Data = resultData,
+        });
     }
 }
