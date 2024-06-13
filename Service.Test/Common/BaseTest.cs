@@ -5,6 +5,9 @@ using Infrastructure.NHibernateDatabase.AutofacModules;
 using Infrastructure.NHibernateDatabase.Interfaces;
 using Moq;
 using Service.Test.Common.DatabaseSetup;
+using Service.Test.Common.Modules;
+using Service.Test.Common.TestDataGenerators;
+using System.Reflection;
 
 namespace Service.Test.Common;
 
@@ -47,6 +50,17 @@ public abstract class BaseTest
         });
 
         builder.RegisterModule(new TestLoggerModule());
+
+        var generators = Assembly.GetExecutingAssembly()
+                                     .GetTypes()
+                                     .Where(type => !type.IsAbstract
+                                            && type.Namespace != null
+                                            && type.Namespace.EndsWith("Tests.Generators"))
+                                     .ToArray();
+
+        builder.RegisterTypes(generators)
+               .AsClosedTypesOf(typeof(TDGenerator<>));
+        builder.RegisterFactory<ITDGeneratorFactory>();
     });
 
     protected virtual void ConfigureContainer(ContainerBuilder builder) { }
