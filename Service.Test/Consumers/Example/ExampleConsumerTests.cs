@@ -24,7 +24,10 @@ public class ExampleConsumerTests : BaseTest
         var database = ioc.SetupDbMock(NHibernateDatabaseType.DbA);
         using var dbBuilder = ioc.GetDatabaseBuilder(NHibernateDatabaseType.DbA);
 
-        dbBuilder.Create<ExampleEntity>(a => a.Id = 123);
+        dbBuilder.Create<ExampleEntity>(a => {
+            a.Id = 123;
+            a.Name = "Test name";
+        });
         dbBuilder.Create<ExampleEntity>(a => a.Id = 1);
         dbBuilder.Create<ExampleEntity>(a => a.Id = 5);
         dbBuilder.Generate();

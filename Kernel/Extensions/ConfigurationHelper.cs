@@ -11,10 +11,10 @@ public class ConfigurationHelper
     /// <param name="section">Section to retrieve</param>
     public static IConfigurationSection GetSection(string section)
     {
-    var builder = new ConfigurationBuilder().AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                                            .AddEnvironmentVariables();
+        var builder = new ConfigurationBuilder().AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                                                .AddEnvironmentVariables();
 
-    IConfigurationRoot configuration = builder.Build();
-    return configuration.GetSection(section);
+        IConfigurationRoot configuration = builder.Build();
+        return configuration.GetSection(section);
     }
 }
