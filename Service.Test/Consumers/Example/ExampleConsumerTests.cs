@@ -13,6 +13,7 @@ public class ExampleConsumerTests : BaseTest
 {
     protected void OnConfigureInMemoryReceiveEndpoint(IInMemoryReceiveEndpointConfigurator configurator)
     {
+        // TODO: Latest version of MT broke both of these and will need to figure out how this should be setup now
         configurator.Consumer<ExampleConsumer>(Kernel);
         configurator.UseInMemoryOutbox();
     }
