@@ -26,12 +26,13 @@ internal class TestDataSessionProvider : NHibernateSessionFactoryProvider
         KeepDb = dataSessionProviderConfiguration.KeepDbAfterTest;
         ScriptLoader = loader;
 
-        if (ScriptLoader != null)
-            ((NHibernateAdvancedSqlScriptLoader)ScriptLoader).Preload(dbType.ToString() + @"\Preload\Schemas");
+        // TODO: Bugged?
+        //if (ScriptLoader != null)
+        //    ((NHibernateAdvancedSqlScriptLoader)ScriptLoader).Preload(dbType.ToString() + @"\Preload\Schemas");
 
         switch (dbType)
         {
-            case NHibernateDatabaseType.DbA:
+            case NHibernateDatabaseType.ExampleData:
                 MappingAssembly = Assembly.Load("Viridian.Entities.DbA");
                 break;
             case NHibernateDatabaseType.DbC:

@@ -16,3 +16,5 @@
 /Infrastructure/bin/Debug/net8.0
 /Domain/bin/Debug/net8.0
 /Service/bin/Debug/net8.0
+/Service.Test/bin/Release/net8.0
+/ExampleData/obj

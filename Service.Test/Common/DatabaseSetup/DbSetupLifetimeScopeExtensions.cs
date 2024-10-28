@@ -44,7 +44,7 @@ public static class DbSetupLifetimeScopeExtensions
 
         switch (dbType)
         {
-            case NHibernateDatabaseType.DbA:
+            case NHibernateDatabaseType.ExampleData:
                 databaseFactory.Setup(d => d.GetDbADataSession())
                                .Returns(database.Object);
                 break;

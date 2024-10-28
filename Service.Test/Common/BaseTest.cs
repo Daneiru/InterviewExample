@@ -38,8 +38,7 @@ public abstract class BaseTest
     public static AutoMock RootIoc = AutoMock.GetLoose(builder =>
     {
         // Register required database types to AutoFac
-        NHibernateDbSetupTools.RegisterDatabase<TestDataSessionProvider>(builder, NHibernateDatabaseType.DbA);
-        NHibernateDbSetupTools.RegisterDatabase<TestDataSessionProvider>(builder, NHibernateDatabaseType.DbC);
+        NHibernateDbSetupTools.RegisterDatabase<TestDataSessionProvider>(builder, NHibernateDatabaseType.ExampleData);
 
         builder.RegisterType<TestDbBuilder>()
                .InstancePerLifetimeScope();

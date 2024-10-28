@@ -2,7 +2,7 @@
 
 public enum NHibernateDatabaseType
 {
-    DbA = 0,
+    ExampleData = 0,
     DbB = 1,
     DbC = 2
 }

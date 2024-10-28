@@ -15,8 +15,8 @@ namespace Infrastructure.NHibernateDatabase.Implementations
 
         public INHibernateDatabase GetDbADataSession()
         {
-            return Scope.ResolveKeyed<INHibernateDatabase>(NHibernateDatabaseType.DbA, 
-                new NamedParameter("dbType", NHibernateDatabaseType.DbA));
+            return Scope.ResolveKeyed<INHibernateDatabase>(NHibernateDatabaseType.ExampleData, 
+                new NamedParameter("dbType", NHibernateDatabaseType.ExampleData));
         }
 
         public INHibernateDatabase GetDbBDataSession()

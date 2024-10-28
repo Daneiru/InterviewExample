@@ -22,8 +22,8 @@ public class ExampleConsumerTests : BaseTest
     public async Task Test1()
     {
         await using var ioc = GetIocContainer();
-        var database = ioc.SetupDbMock(NHibernateDatabaseType.DbA);
-        using var dbBuilder = ioc.GetDatabaseBuilder(NHibernateDatabaseType.DbA);
+        var database = ioc.SetupDbMock(NHibernateDatabaseType.ExampleData);
+        using var dbBuilder = ioc.GetDatabaseBuilder(NHibernateDatabaseType.ExampleData);
 
         dbBuilder.Create<ExampleEntity>(a => {
             a.Id = 123;

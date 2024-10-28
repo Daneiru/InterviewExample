@@ -13,7 +13,7 @@ public class NHibernateDataSessionProvider : NHibernateSessionFactoryProvider
     {
         switch (dbType)
         {
-            case NHibernateDatabaseType.DbA:
+            case NHibernateDatabaseType.ExampleData:
                 MappingAssembly = Assembly.Load("Domain.Entities.DbA");
                 ConnectionString = Configuration["ConnectionStrings:DbA"];
                 break;

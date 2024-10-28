@@ -15,7 +15,7 @@ public class NHibernateStandardDatabasesModule : Module
                .InstancePerLifetimeScope();
 
         // Register each DbType we need
-        NHibernateDbSetupTools.RegisterDatabase<NHibernateDataSessionProvider>(builder, NHibernateDatabaseType.DbA);
+        NHibernateDbSetupTools.RegisterDatabase<NHibernateDataSessionProvider>(builder, NHibernateDatabaseType.ExampleData);
         NHibernateDbSetupTools.RegisterDatabase<NHibernateDataSessionProvider>(builder, NHibernateDatabaseType.DbC);
     }
 }

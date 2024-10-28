@@ -20,7 +20,7 @@ public class TestDbBuilder : IDisposable
     {
         switch (dbType)
         {
-            case NHibernateDatabaseType.DbA:
+            case NHibernateDatabaseType.ExampleData:
                 Database = database.GetDbADataSession();
                 break;
             case NHibernateDatabaseType.DbC:
@@ -52,7 +52,7 @@ public class TestDbBuilder : IDisposable
         }
 
         // TODO: Moq changed how thier object works at some point. I figured out a way to fix this originally but I dont recall what the solution was off-hand
-        var config = mockObj.Invocations.ToDictionary(k => k.Method.Name.Replace("set_", ""), v => v.Arguments.Single());
+        //var config = mockObj.Invocations.ToDictionary(k => k.Method.Name.Replace("set_", ""), v => v.Arguments.Single());
         var generator = GeneratorFactory.GetGenerator<T>();
 
         var genProps = generator.GetType().GetProperties().ToDictionary(k => k.Name, value => value);
@@ -63,12 +63,12 @@ public class TestDbBuilder : IDisposable
         {
             try
             {
-                var isSet = config.TryGetValue(p.Name, out var currentValue);
-                if (isSet)
-                {
-                    p.SetValue(result, currentValue);
-                    continue;
-                }
+                //var isSet = config.TryGetValue(p.Name, out var currentValue);
+                //if (isSet)
+                //{
+                //    p.SetValue(result, currentValue);
+                //    continue;
+                //}
 
                 if (Rules.Associations.TryGetValue(p.PropertyType, out var list) && list.Any(item => item == typeof(T)))
                 {
@@ -148,7 +148,7 @@ public class TestDbBuilder : IDisposable
         if (typeof(T).Name.StartsWith("Meta"))
             entityType = typeof(T).BaseType;
 
-        var constType = Type.GetType($"Interplx.Core.Entities.ExpenseData.Mapping.Constants.{entityType.Name}, Interplx.Core.Entities.ExpenseData");
+        var constType = Type.GetType($"Infrastructure.Entities.{entityType.Name}, Infrastructure.Entities");
         var consts = constType.GetFields();
         var tableName = consts.First(c => c.Name == "Context").GetValue(null);
 
