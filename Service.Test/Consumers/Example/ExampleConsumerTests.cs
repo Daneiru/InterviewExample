@@ -1,4 +1,5 @@
-﻿using Domain.Event;
+﻿using Autofac;
+using Domain.Event;
 using Infrastructure.Entities;
 using Infrastructure.Enums;
 using MassTransit;
@@ -13,8 +14,7 @@ public class ExampleConsumerTests : BaseTest
 {
     protected void OnConfigureInMemoryReceiveEndpoint(IInMemoryReceiveEndpointConfigurator configurator)
     {
-        // TODO: Latest version of MT broke both of these and will need to figure out how this should be setup now
-        configurator.Consumer<ExampleConsumer>(Kernel);
+        configurator.Consumer<ExampleConsumer>(Kernel.Resolve<IRegistrationContext>());
         configurator.UseInMemoryOutbox();
     }
 

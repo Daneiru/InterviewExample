@@ -75,7 +75,7 @@ public abstract class BaseTest
     public void EnsureSuccessfulResponse<T>(Task<MassTransit.Fault<T>> faulted)
     {
         if (!faulted.IsCanceled)
-            Assert.Fail("Consumer failed to complete. {0}", RenderException(faulted.Result.Exceptions));
+            Assert.Fail($"Consumer failed to complete. { RenderException(faulted.Result.Exceptions) }");
     }
 
     string RenderException(MassTransit.ExceptionInfo[] exceptions)

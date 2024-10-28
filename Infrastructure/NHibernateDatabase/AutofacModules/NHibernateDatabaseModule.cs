@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using Infrastructure.Enums;
-using Pixel.DataAccess.Implementations;
-using Pixel.DataAccess.Interfaces;
+using Infrastructure.NHibernateDatabase.Implementations;
+using Infrastructure.NHibernateDatabase.Interfaces;
 
 namespace Infrastructure.NHibernateDatabase.AutofacModules;
 
