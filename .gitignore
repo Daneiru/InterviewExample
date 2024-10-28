@@ -11,3 +11,7 @@
 /Service.Test/obj
 /Web/obj/Debug/net8.0
 /Web/obj
+/Web/bin/Debug/net8.0
+/Kernel/bin/Debug/net7.0
+/Infrastructure/bin/Debug/net8.0
+/Domain/bin/Debug/net8.0
